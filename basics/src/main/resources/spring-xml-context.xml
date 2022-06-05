@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+  <!-- In Spring 5.1, the Spring Development team changed the logging levels internally. 
+       As a result, by default you will no longer see the red logging messages at the INFO level.
+       This bean resolves this problem --> 
+  <bean id="loggerConfig" class="com.antchb.examples.spring.basics.SpringLoggerConfig" init-method="initLogger">
+     <property name="rootLoggerLevel" value="FINE" />
+     <property name="printedLoggerLevel" value="FINE"/>
+  </bean>
+
+  <!-- Step 1. Inversion of Control (IoC) Example-->  
+  <bean id="sportEvent" class="com.antchb.examples.spring.basics.sport_event.ChessEvent"/>
+  
+  <!-- Step 2. Dependency Injection (DI) Example. Constructor -->  
+  <bean id="simpleSlogan" class="com.antchb.examples.spring.basics.slogan.SimpleSlogan"/>
+  <bean id="motivationalSlogan" class="com.antchb.examples.spring.basics.slogan.MotivationalSlogan"/>
+
+  <bean id="sportEventDependencyInjection" class="com.antchb.examples.spring.basics.sport_event.BasketballEvent">
+    <constructor-arg ref="motivationalSlogan"/>
+  </bean>
+
+  <!-- Step 3. Dependency Injection (DI) Example. Setter -->  
+  <bean id="sportEventDependencyInjectionSetter" class="com.antchb.examples.spring.basics.sport_event.ChessEvent">
+    <!-- It will look for a setter method: setOrganizer() -->
+    <property name="slogan" ref="simpleSlogan"/>
+  </bean>
+  
+  <!-- Step 4. Dependency Injection (DI) Example. Setter for a field -->  
+  <bean id="chessEvent" class="com.antchb.examples.spring.basics.sport_event.ChessEvent">
+    <property name="slogan" ref="simpleSlogan"/>
+    <property name="contactName" value="Jack Sparrow"/>
+  </bean>
+
+  <!-- Step 5. Dependency Injection (DI) Example. Setter with a property file -->  
+  <context:property-placeholder location="classpath:contacts.properties"/>
+
+  <bean id="chessEventFileProps" class="com.antchb.examples.spring.basics.sport_event.ChessEvent">
+    <property name="slogan" ref="motivationalSlogan"/>
+    <property name="contactName" value="${contact.name}"/>
+  </bean>
+
+  <!-- Step 6. Dependency Injection (DI) Example. Init list of values -->  
+  <bean id="randomSloganList" class="com.antchb.examples.spring.basics.slogan.RandomSlogan">
+    <constructor-arg>
+      <list>
+        <ref bean="simpleSlogan"/>
+        <ref bean="motivationalSlogan"/>
+      </list>
+    </constructor-arg>
+  </bean>
+
+  <bean id="sportEventWithRandomSlogan" class="com.antchb.examples.spring.basics.sport_event.ChessEvent">
+    <constructor-arg ref="randomSloganList"/>
+  </bean>
+</beans>
