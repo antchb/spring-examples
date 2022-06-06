@@ -1,8 +1,10 @@
 package com.antchb.examples.spring.basics.sport_event;
 
+import org.springframework.beans.factory.DisposableBean;
+
 import com.antchb.examples.spring.basics.slogan.ISlogan;
 
-public class ChessEvent implements ISportEvent {
+public class ChessEvent implements ISportEvent, DisposableBean {
 
     private ISlogan slogan;
     private String contactName;
@@ -36,4 +38,16 @@ public class ChessEvent implements ISportEvent {
         return contactName;
     }
 
+    public void userInitMethod() {
+        System.out.println("Inside user's init. method... The last step of initialization");
+    }
+
+    public void userDestroyMethod() {
+        System.out.println("Inside user's destroy method...");
+    }
+
+    @Override
+    public void destroy() throws Exception {
+        System.out.println("Inside user's destroy method for a prototype bean! Called by a custom bean processor");
+    }
 }

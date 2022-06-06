@@ -49,6 +49,25 @@ public class App {
         ISportEvent eventWithRandomSlogan = context.getBean("sportEventWithRandomSlogan", ISportEvent.class); 
         System.out.println("# Random Slogan: " + eventWithRandomSlogan.getSlogan());
 
+        // Step 7
+        System.out.println("\n### An Example of Bean Scopes. Singleton (default) + Prototype ###\n");
+        ISportEvent oneSingleton = context.getBean("singleton", ISportEvent.class);
+        ISportEvent twoSingleton = context.getBean("singleton", ISportEvent.class);
+
+        System.out.println("# Result of comparing two singletons (one == two): " + (oneSingleton == twoSingleton));
+
+        ISportEvent onePrototype = context.getBean("prototype", ISportEvent.class);
+        ISportEvent twoPrototype = context.getBean("prototype", ISportEvent.class);
+
+        System.out.println("# Result of comparing two prototypes (one == two): " + (onePrototype == twoPrototype));
+
+        // Step 8
+        System.out.println("\n### An Example of Bean Lifecycle (Hooks / Init + Destroy Method) ###\n");
+        ISportEvent lifecycleMethods = context.getBean("lifecycleMethodsBean", ISportEvent.class);
+
+        System.out.println("\n### For Prototype Scoped Beans Spring do not call destroy method. To support it a custom bean processor is required ###\n");
+        ChessEvent prototypeWithDestroyMethod = context.getBean("prototypeWithDestroyMethod", ChessEvent.class);
+
         context.close();
     }
 }

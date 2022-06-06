@@ -59,4 +59,16 @@
   <bean id="sportEventWithRandomSlogan" class="com.antchb.examples.spring.basics.sport_event.ChessEvent">
     <constructor-arg ref="randomSloganList"/>
   </bean>
+
+  <!-- Step 7. Different bean scopes -->
+  <bean id="singleton" class="com.antchb.examples.spring.basics.sport_event.ChessEvent" scope="singleton" />
+  <bean id="prototype" class="com.antchb.examples.spring.basics.sport_event.ChessEvent" scope="prototype" />
+
+  <!-- Step 8. Bean Lifecycle + Custom init and destroy methods (hooks) for prototype scoped beans -->
+  <bean id="lifecycleMethodsBean" class="com.antchb.examples.spring.basics.sport_event.ChessEvent" scope="singleton"
+        init-method="userInitMethod" destroy-method="userDestroyMethod" />
+
+  <bean id="destoyMethodProcessor" class="com.antchb.examples.spring.basics.DestroyMethodBeanProcessor" scope="singleton"/>
+  <bean id="prototypeWithDestroyMethod" class="com.antchb.examples.spring.basics.sport_event.ChessEvent" scope="prototype" />
+
 </beans>
