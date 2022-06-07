@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+  <!-- In Spring 5.1, the Spring Development team changed the logging levels internally. 
+       As a result, by default you will no longer see the red logging messages at the INFO level.
+       This bean resolves this problem --> 
+  <bean id="loggerConfig" class="com.antchb.examples.spring.basics.SpringLoggerConfig" init-method="initLogger">
+     <property name="rootLoggerLevel" value="FINE" />
+     <property name="printedLoggerLevel" value="FINE"/>
+  </bean>
+
+  <!-- Step 1. Inversion of Control (IoC). Enable component scanning -->  
+  <context:component-scan base-package="com.antchb.examples.spring.basics.sport_event" />
+
+</beans>

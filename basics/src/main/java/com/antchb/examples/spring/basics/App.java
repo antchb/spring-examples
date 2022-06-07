@@ -1,17 +1,38 @@
 package com.antchb.examples.spring.basics;
 
+import java.util.Scanner;
+
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.antchb.examples.spring.basics.sport_event.ChessEvent;
 import com.antchb.examples.spring.basics.sport_event.ISportEvent;
 
 public class App {
+    
     public static void main(String[] args) {
+        try (Scanner in = new Scanner(System.in)) {
+            System.out.println("Select a configuration type:\n");
+            System.out.println("\t[1]: XML Configuration");
+            System.out.println("\t[2]: Java Annotations Configuration");
+            
+            System.out.print("\n### Selected Option: ");
+
+            String option = in.nextLine();
+
+            switch(option) {
+                case "1" -> xmlConfiguration(); 
+                case "2" -> javaAnnotationsConfiguration();
+                default -> System.out.println("Wrong option selected. Please, run again");
+            }
+        }
+    }
+    
+    public static void xmlConfiguration() {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring-xml-context.xml");
 
         // Step 1
         System.out.println("\n### An Example of IoC (Inversion Of Control). An XML Configuration decides on which object " +
-                           "is going to be generated ###\n");
+                           "will be generated ###\n");
       
         ISportEvent sport = context.getBean("sportEvent", ISportEvent.class);
         System.out.println(sport.getDescription());
@@ -67,6 +88,18 @@ public class App {
 
         System.out.println("\n### For Prototype Scoped Beans Spring do not call destroy method. To support it a custom bean processor is required ###\n");
         ChessEvent prototypeWithDestroyMethod = context.getBean("prototypeWithDestroyMethod", ChessEvent.class);
+
+        context.close();
+    }
+
+    private static void javaAnnotationsConfiguration() {
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring-annotations-context.xml");
+
+        // Step 1
+        System.out.println("\n### An Example of IoC (Inversion Of Control). An XML Configuration enables Annotation scanning " +
+                          "and it decides on which object will be generated ###\n");
+        ISportEvent sportEvent = context.getBean("footballEventBeanId", ISportEvent.class);
+        System.out.println(sportEvent.getDescription());
 
         context.close();
     }
