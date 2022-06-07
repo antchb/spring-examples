@@ -31,8 +31,8 @@ public class App {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring-xml-context.xml");
 
         // Step 1
-        System.out.println("\n### An Example of IoC (Inversion Of Control). An XML Configuration decides on which object " +
-                           "will be generated ###\n");
+        System.out.println("\n### An Example of IoC (Inversion Of Control). An XML Configuration decides on which " +
+                           "object will be generated ###\n");
       
         ISportEvent sport = context.getBean("sportEvent", ISportEvent.class);
         System.out.println(sport.getDescription());
@@ -86,7 +86,8 @@ public class App {
         System.out.println("\n### An Example of Bean Lifecycle (Hooks / Init + Destroy Method) ###\n");
         ISportEvent lifecycleMethods = context.getBean("lifecycleMethodsBean", ISportEvent.class);
 
-        System.out.println("\n### For Prototype Scoped Beans Spring do not call destroy method. To support it a custom bean processor is required ###\n");
+        System.out.println("\n### For Prototype Scoped Beans Spring do not call destroy method. To support it a " +
+                           "custom bean processor is required ###\n");
         ChessEvent prototypeWithDestroyMethod = context.getBean("prototypeWithDestroyMethod", ChessEvent.class);
 
         context.close();
@@ -96,24 +97,35 @@ public class App {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring-annotations-context.xml");
 
         // Step 1
-        System.out.println("\n### An Example of IoC (Inversion Of Control). An XML Configuration enables Annotation scanning " +
-                          "and it decides on which object will be generated ###\n");
+        System.out.println("\n### An Example of IoC (Inversion Of Control). An XML Configuration enables Annotation " +
+                           "scanning and it decides on which object will be generated ###\n");
         ISportEvent sportEvent = context.getBean("hockeyEventBeanId", ISportEvent.class);
         System.out.println("# Description: " + sportEvent.getDescription());
         System.out.println("# Slogan: " + sportEvent.getSlogan());
 
+        // NOTE: Choose a style and stay consistent in your project
+
         // Step 2
-        System.out.println("\n### An Example of Dependency Injection (DI) - Constructor. @Autowired annotation is used. " +
-                           "If there are too many implementations then @Qualifier must be used ###\n");
+        System.out.println("\n### An Example of Dependency Injection (DI) - Constructor. @Autowired annotation " +
+                           "is used. If there are too many implementations then @Qualifier must be used ###\n");
         ISportEvent autowiredConstructor = context.getBean("footballEvent", ISportEvent.class);
         System.out.println("# Description: " + autowiredConstructor.getDescription() + "\n");
         System.out.println("# Slogan: " + autowiredConstructor.getSlogan());
         
-        System.out.println("\n### An Example of Dependency Injection (DI) - Setter (Method Injection). It can be used with any method ###\n");
+        // Step 3
+        System.out.println("\n### An Example of Dependency Injection (DI) - Setter (Method Injection). " +
+                           "It can be used with any method ###\n");
         ISportEvent autowiredSetter = context.getBean("americanFootballEvent", ISportEvent.class);
         System.out.println("# Description: " + autowiredSetter.getDescription() + "\n");
         System.out.println("# Slogan: " + autowiredSetter.getSlogan());
         
+        // Step 4
+        System.out.println("\n### An Example of Dependency Injection (DI) - Field Injection. " +
+                           "No setters required. It uses Java Reflection ###\n");
+        ISportEvent fieldInjectionBean = context.getBean("volleyballEvent", ISportEvent.class);
+        System.out.println("# Description: " + fieldInjectionBean.getDescription() + "\n");
+        System.out.println("# Slogan: " + fieldInjectionBean.getSlogan());
+
         context.close();
     }
 }
