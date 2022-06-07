@@ -98,9 +98,16 @@ public class App {
         // Step 1
         System.out.println("\n### An Example of IoC (Inversion Of Control). An XML Configuration enables Annotation scanning " +
                           "and it decides on which object will be generated ###\n");
-        ISportEvent sportEvent = context.getBean("footballEventBeanId", ISportEvent.class);
-        System.out.println(sportEvent.getDescription());
+        ISportEvent sportEvent = context.getBean("hockeyEventBeanId", ISportEvent.class);
+        System.out.println("# Description: " + sportEvent.getDescription());
 
+        // Step 2
+        System.out.println("\n### An Example of Dependency Injection (DI) - Constructor. @Autowired annotation is used. " +
+                           "If there are too many implementations then @Qualifier must be used ###\n");
+        ISportEvent autowiredConstructor = context.getBean("footballEvent", ISportEvent.class);
+        System.out.println("# Description: " + autowiredConstructor.getDescription() + "\n");
+        System.out.println("# Slogan: " + autowiredConstructor.getSlogan());
+        
         context.close();
     }
 }

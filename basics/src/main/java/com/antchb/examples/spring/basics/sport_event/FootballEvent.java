@@ -1,17 +1,20 @@
 package com.antchb.examples.spring.basics.sport_event;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.antchb.examples.spring.basics.slogan.ISlogan;
 
 // Empty value will make this id as "footballEvent"
-@Component("footballEventBeanId")
+@Component
 public class FootballEvent implements ISportEvent {
 
     private ISlogan slogan;
 
-    public FootballEvent() { }
-
+    // As of Spring Framework 4.3, an @Autowired annotation on such a constructor is no longer necessary 
+    // if the target bean only defines one constructor to begin with. However, if several constructors are available, 
+    // at least one must be annotated to teach the container which one to use.
+    @Autowired
     public FootballEvent(ISlogan slogan) {
         this.slogan = slogan;
     }
