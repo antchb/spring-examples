@@ -10,6 +10,8 @@ public class HockeyEvent implements ISportEvent {
 
     private ISlogan slogan;
 
+    public HockeyEvent() { }
+
     @Override
     public String getDescription() {
         return "Ice hockey (or simply hockey) is a winter team sport played on ice skates, usually on an ice skating " +

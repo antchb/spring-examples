@@ -100,6 +100,7 @@ public class App {
                           "and it decides on which object will be generated ###\n");
         ISportEvent sportEvent = context.getBean("hockeyEventBeanId", ISportEvent.class);
         System.out.println("# Description: " + sportEvent.getDescription());
+        System.out.println("# Slogan: " + sportEvent.getSlogan());
 
         // Step 2
         System.out.println("\n### An Example of Dependency Injection (DI) - Constructor. @Autowired annotation is used. " +
@@ -107,6 +108,11 @@ public class App {
         ISportEvent autowiredConstructor = context.getBean("footballEvent", ISportEvent.class);
         System.out.println("# Description: " + autowiredConstructor.getDescription() + "\n");
         System.out.println("# Slogan: " + autowiredConstructor.getSlogan());
+        
+        System.out.println("\n### An Example of Dependency Injection (DI) - Setter (Method Injection). It can be used with any method ###\n");
+        ISportEvent autowiredSetter = context.getBean("americanFootballEvent", ISportEvent.class);
+        System.out.println("# Description: " + autowiredSetter.getDescription() + "\n");
+        System.out.println("# Slogan: " + autowiredSetter.getSlogan());
         
         context.close();
     }
