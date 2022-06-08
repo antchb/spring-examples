@@ -1,6 +1,7 @@
 package com.antchb.examples.spring.basics.sport_event;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import com.antchb.examples.spring.basics.slogan.ISlogan;
@@ -14,6 +15,7 @@ public class AmericanFootballEvent implements ISportEvent {
 
     // Method Injection can be applied for any method!
     @Autowired
+    @Qualifier("appleSlogan")
     public void setSlogan(ISlogan slogan) {
         System.out.println("Setting a slogan inside a setter method...");
         this.slogan = slogan;

@@ -1,11 +1,13 @@
 package com.antchb.examples.spring.basics.sport_event;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import com.antchb.examples.spring.basics.slogan.ISlogan;
 
 // Empty value will make this id as "footballEvent"
+// If the first two characters are uppercase, then the name is NOT converted
 @Component
 public class FootballEvent implements ISportEvent {
 
@@ -15,7 +17,7 @@ public class FootballEvent implements ISportEvent {
     // if the target bean only defines one constructor to begin with. However, if several constructors are available, 
     // at least one must be annotated to teach the container which one to use.
     @Autowired
-    public FootballEvent(ISlogan slogan) {
+    public FootballEvent(@Qualifier("manchesterSlogan") ISlogan slogan) {
         this.slogan = slogan;
     }
 

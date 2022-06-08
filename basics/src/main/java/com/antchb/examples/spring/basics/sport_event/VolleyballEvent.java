@@ -1,6 +1,7 @@
 package com.antchb.examples.spring.basics.sport_event;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import com.antchb.examples.spring.basics.slogan.ISlogan;
@@ -9,6 +10,7 @@ import com.antchb.examples.spring.basics.slogan.ISlogan;
 public class VolleyballEvent implements ISportEvent {
 
     @Autowired
+    @Qualifier("manchesterSlogan")
     private ISlogan slogan;
 
     public VolleyballEvent() { }
