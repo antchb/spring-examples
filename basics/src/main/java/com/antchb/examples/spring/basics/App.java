@@ -5,6 +5,7 @@ import java.util.Scanner;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.antchb.examples.spring.basics.sport_event.ChessEvent;
+import com.antchb.examples.spring.basics.sport_event.HockeyEvent;
 import com.antchb.examples.spring.basics.sport_event.ISportEvent;
 
 public class App {
@@ -125,6 +126,11 @@ public class App {
         ISportEvent fieldInjectionBean = context.getBean("volleyballEvent", ISportEvent.class);
         System.out.println("# Description: " + fieldInjectionBean.getDescription() + "\n");
         System.out.println("# Slogan: " + fieldInjectionBean.getSlogan());
+
+        // Step 5
+        System.out.println("\n### An Example of Dependency Injection (DI) - Properties Injection ###\n");
+        HockeyEvent hockeyEventProperties = context.getBean("hockeyEventBeanId", HockeyEvent.class);
+        System.out.println("# Contact name: " + hockeyEventProperties.getContactName());
 
         context.close();
     }

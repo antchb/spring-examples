@@ -1,5 +1,6 @@
 package com.antchb.examples.spring.basics.sport_event;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import com.antchb.examples.spring.basics.slogan.ISlogan;
@@ -9,6 +10,9 @@ import com.antchb.examples.spring.basics.slogan.ISlogan;
 public class HockeyEvent implements ISportEvent {
 
     private ISlogan slogan;
+    
+    @Value("${contact.name}")
+    private String contactName;
 
     public HockeyEvent() { }
 
@@ -27,4 +31,7 @@ public class HockeyEvent implements ISportEvent {
         return slogan != null ? slogan.getSlogan() : "";
     }
 
+    public String getContactName() {
+        return contactName;
+    }
 }
