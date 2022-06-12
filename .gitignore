@@ -38,3 +38,6 @@ target/
 
 # OS
 .DS_Store
+
+# Maven
+dependency-reduced-pom.xml

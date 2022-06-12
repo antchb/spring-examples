@@ -10,7 +10,7 @@
   <groupId>com.antchb.examples.spring</groupId>
   <artifactId>basics</artifactId>
   <version>1.0-SNAPSHOT</version>
-
+  <packaging>jar</packaging>
   <name>Spring Examples - Basics</name>
 
   <properties>
@@ -23,6 +23,14 @@
 	    <artifactId>spring-context</artifactId>
 	    <version>${org.springframework.version}</version>
 	  </dependency>
+
+    <!-- We need it to enable @PostConstruct or @PreDestroy annotations.
+         Starting Java 9, javax.annotation has been removed from its default classpath -->
+    <dependency>
+      <groupId>javax.annotation</groupId>
+      <artifactId>javax.annotation-api</artifactId>
+      <version>1.3.2</version>
+    </dependency>
   </dependencies>
 
 </project>

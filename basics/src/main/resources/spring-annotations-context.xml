@@ -19,6 +19,6 @@
   <context:component-scan base-package="com.antchb.examples.spring.basics" />
 
   <!-- Step 5. Inject properties -->
-  <context:property-placeholder location="classpath:contacts.properties" />
+  <context:property-placeholder location="classpath:contacts.properties,classpath:files.properties" />
 
 </beans>

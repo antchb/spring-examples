@@ -23,11 +23,11 @@ public class App {
             switch(option) {
                 case "1" -> xmlConfiguration(); 
                 case "2" -> javaAnnotationsConfiguration();
-                default -> System.out.println("Wrong option selected. Please, run again");
+                default -> System.out.println("Wrong option was selected. Please, run again");
             }
         }
     }
-    
+
     public static void xmlConfiguration() {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring-xml-context.xml");
 
@@ -86,10 +86,12 @@ public class App {
         // Step 8
         System.out.println("\n### An Example of Bean Lifecycle (Hooks / Init + Destroy Method) ###\n");
         ISportEvent lifecycleMethods = context.getBean("lifecycleMethodsBean", ISportEvent.class);
+        System.out.println("# Slogan: " + lifecycleMethods.getSlogan());
 
         System.out.println("\n### For Prototype Scoped Beans Spring do not call destroy method. To support it a " +
                            "custom bean processor is required ###\n");
         ChessEvent prototypeWithDestroyMethod = context.getBean("prototypeWithDestroyMethod", ChessEvent.class);
+        System.out.println("# Slogan: " + prototypeWithDestroyMethod.getSlogan());
 
         context.close();
     }
@@ -131,6 +133,13 @@ public class App {
         System.out.println("\n### An Example of Dependency Injection (DI) - Properties Injection ###\n");
         HockeyEvent hockeyEventProperties = context.getBean("hockeyEventBeanId", HockeyEvent.class);
         System.out.println("# Contact name: " + hockeyEventProperties.getContactName());
+
+        // Step 6
+        System.out.println("\n### An Example of Dependency Injection (DI) - Random values from the file " +
+                           "+ Post Construct Example ###\n");
+        ISportEvent randomValues = context.getBean("boxingEvent", ISportEvent.class);
+        System.out.println("# Description: " + randomValues.getDescription() + "\n");
+        System.out.println("# Slogan: " + randomValues.getSlogan());
 
         context.close();
     }
