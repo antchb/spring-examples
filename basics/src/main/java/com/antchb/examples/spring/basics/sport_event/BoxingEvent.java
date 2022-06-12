@@ -2,11 +2,13 @@ package com.antchb.examples.spring.basics.sport_event;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import com.antchb.examples.spring.basics.slogan.ISlogan;
 
 @Component
+@Scope("prototype")
 public class BoxingEvent implements ISportEvent {
 
     @Autowired

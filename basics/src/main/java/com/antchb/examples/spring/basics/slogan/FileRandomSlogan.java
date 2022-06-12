@@ -42,7 +42,8 @@ public class FileRandomSlogan implements ISlogan {
     }
    
     // To enable @PostConstruct or @PreDestroy annotations we need to import javax.annotation library 
-    // because it was removed from the standard JDK 9+ 
+    // because it was removed from the standard JDK 9+
+    // The method can have any access modifier and any name, but it must have no args
     @PostConstruct
     private void postConstructActivities() {
         System.out.println("### Post Construct Activities... Manual Method!");

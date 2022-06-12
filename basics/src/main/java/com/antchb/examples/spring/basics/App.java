@@ -141,6 +141,17 @@ public class App {
         System.out.println("# Description: " + randomValues.getDescription() + "\n");
         System.out.println("# Slogan: " + randomValues.getSlogan());
 
+        // Step 7
+        System.out.println("\n### An Example of Bean Scopes. Singleton (default) + Prototype ###\n");
+        ISportEvent oneSingleton = context.getBean("footballEvent", ISportEvent.class);
+        ISportEvent twoSingleton = context.getBean("footballEvent", ISportEvent.class);
+
+        System.out.println("# Result of comparing two singletons (one == two): " + (oneSingleton == twoSingleton));
+
+        ISportEvent onePrototype = context.getBean("boxingEvent", ISportEvent.class);
+        ISportEvent twoPrototype = context.getBean("boxingEvent", ISportEvent.class);
+
+        System.out.println("# Result of comparing two prototypes (one == two): " + (onePrototype == twoPrototype));
         context.close();
     }
 }
