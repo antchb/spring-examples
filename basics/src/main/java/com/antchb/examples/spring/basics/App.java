@@ -169,6 +169,13 @@ public class App {
         System.out.println("# Description: " + sportEvent.getDescription());
         System.out.println("# Slogan: " + sportEvent.getSlogan());
 
+        // Step 2
+        // You can use @Bean to make an existing third-party class available in your Spring framework application context
+        System.out.println("\n### An Example of manual bean creation + DI for Java Only Configuration ###\n");
+        ISportEvent chessEvent = context.getBean("chessEvent", ISportEvent.class);
+        System.out.println("# Description: " + chessEvent.getDescription());
+        System.out.println("# Slogan: " + chessEvent.getSlogan());
+
         context.close();
     }
 }
