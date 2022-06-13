@@ -2,6 +2,7 @@ package com.antchb.examples.spring.basics;
 
 import java.util.Scanner;
 
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.antchb.examples.spring.basics.sport_event.ChessEvent;
@@ -15,6 +16,7 @@ public class App {
             System.out.println("Select a configuration type:\n");
             System.out.println("\t[1]: XML Configuration");
             System.out.println("\t[2]: Java Annotations Configuration");
+            System.out.println("\t[3]: Java Only Configuration (No XML)");
             
             System.out.print("\n### Selected Option: ");
 
@@ -23,6 +25,7 @@ public class App {
             switch(option) {
                 case "1" -> xmlConfiguration(); 
                 case "2" -> javaAnnotationsConfiguration();
+                case "3" -> javaOnlyConfiguration();
                 default -> System.out.println("Wrong option was selected. Please, run again");
             }
         }
@@ -101,7 +104,7 @@ public class App {
 
         // Step 1
         System.out.println("\n### An Example of IoC (Inversion Of Control). An XML Configuration enables Annotation " +
-                           "scanning and it decides on which object will be generated ###\n");
+                           "scanning and it decides what object will be generated ###\n");
         ISportEvent sportEvent = context.getBean("hockeyEventBeanId", ISportEvent.class);
         System.out.println("# Description: " + sportEvent.getDescription());
         System.out.println("# Slogan: " + sportEvent.getSlogan());
@@ -152,6 +155,20 @@ public class App {
         ISportEvent twoPrototype = context.getBean("boxingEvent", ISportEvent.class);
 
         System.out.println("# Result of comparing two prototypes (one == two): " + (onePrototype == twoPrototype));
+        context.close();
+    }
+
+    private static void javaOnlyConfiguration() {
+        AnnotationConfigApplicationContext context = 
+            new AnnotationConfigApplicationContext(SportEventConfiguration.class);
+
+        // Step 1
+        System.out.println("\n### An Example of IoC (Inversion Of Control). Java Config. Class enables " +
+                           "scanning and it decides what object will be generated ###\n"); 
+        ISportEvent sportEvent = context.getBean("footballEvent", ISportEvent.class);
+        System.out.println("# Description: " + sportEvent.getDescription());
+        System.out.println("# Slogan: " + sportEvent.getSlogan());
+
         context.close();
     }
 }

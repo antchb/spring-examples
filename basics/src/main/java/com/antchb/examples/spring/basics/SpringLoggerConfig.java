@@ -9,31 +9,40 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 public class SpringLoggerConfig {
 
-	private String rootLoggerLevel;
-	private String printedLoggerLevel;
-	
-	public void setRootLoggerLevel(String rootLoggerLevel) {
-		this.rootLoggerLevel = rootLoggerLevel;
-	}
+    private String rootLoggerLevel;
+    private String printedLoggerLevel;
 
-	public void setPrintedLoggerLevel(String printedLoggerLevel) {
-		this.printedLoggerLevel = printedLoggerLevel;
-	}
+    public SpringLoggerConfig() { }
 
-	public void initLogger() {
-		Level rootLevel = Level.parse(rootLoggerLevel);
-		Level printedLevel = Level.parse(printedLoggerLevel);
-		
-		Logger applicationContextLogger = Logger.getLogger(AnnotationConfigApplicationContext.class.getName());
-		Logger loggerParent = applicationContextLogger.getParent();
+    public SpringLoggerConfig(String rootLoggerLevel, String printedLoggerLevel) {
+        this.rootLoggerLevel = rootLoggerLevel;
+        this.printedLoggerLevel = printedLoggerLevel;
 
-		loggerParent.setLevel(rootLevel);
-		
-		ConsoleHandler consoleHandler = new ConsoleHandler();
-		consoleHandler.setLevel(printedLevel);
-		consoleHandler.setFormatter(new SimpleFormatter());
-		
-		loggerParent.addHandler(consoleHandler);
-	}
-	
+		initLogger();
+    }
+
+    public void setRootLoggerLevel(String rootLoggerLevel) {
+        this.rootLoggerLevel = rootLoggerLevel;
+    }
+
+    public void setPrintedLoggerLevel(String printedLoggerLevel) {
+        this.printedLoggerLevel = printedLoggerLevel;
+    }
+
+    public void initLogger() {
+        Level rootLevel = Level.parse(rootLoggerLevel);
+        Level printedLevel = Level.parse(printedLoggerLevel);
+        
+        Logger applicationContextLogger = Logger.getLogger(AnnotationConfigApplicationContext.class.getName());
+        Logger loggerParent = applicationContextLogger.getParent();
+
+        loggerParent.setLevel(rootLevel);
+        
+        ConsoleHandler consoleHandler = new ConsoleHandler();
+        consoleHandler.setLevel(printedLevel);
+        consoleHandler.setFormatter(new SimpleFormatter());
+        
+        loggerParent.addHandler(consoleHandler);
+    }
+    
 }
