@@ -13,6 +13,8 @@ import com.antchb.examples.spring.basics.sport_event.ChessEvent;
 @Configuration
 @ComponentScan("com.antchb.examples.spring.basics")
 @PropertySource("classpath:logger.properties")
+@PropertySource("classpath:contacts.properties")
+@PropertySource("classpath:files.properties")
 public class SportEventConfiguration {
 
     // In Spring 5.1, the Spring Development team changed the logging levels internally

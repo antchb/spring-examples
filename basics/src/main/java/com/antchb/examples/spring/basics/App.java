@@ -176,6 +176,11 @@ public class App {
         System.out.println("# Description: " + chessEvent.getDescription());
         System.out.println("# Slogan: " + chessEvent.getSlogan());
 
+        // Step 3
+        System.out.println("\n### An Example of Dependency Injection (DI) - Properties Injection ###\n");
+        HockeyEvent hockeyEventProperties = context.getBean("hockeyEventBeanId", HockeyEvent.class);
+        System.out.println("# Contact name: " + hockeyEventProperties.getContactName());
+
         context.close();
     }
 }
