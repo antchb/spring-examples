@@ -17,6 +17,7 @@
   </properties>
   
   <modules>
-    <module>basics</module>      
+    <module>basics</module>
+    <module>mvc</module>     
   </modules>
 </project>
