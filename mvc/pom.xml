@@ -29,6 +29,14 @@
       <artifactId>spring-webmvc</artifactId>
       <version>${org.springframework.version}</version>
     </dependency>
+
+    <!-- TODO: Replace with Jarakrta in the future. Upgrade for Tomcat, Spring, etc. -->
+    <!-- We need it to enable support for javax.servlet.http.HttpServletRequest, etc.-->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>4.0.1</version>
+    </dependency>
   </dependencies>
 
   <build>
