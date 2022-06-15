@@ -37,6 +37,14 @@
       <artifactId>javax.servlet-api</artifactId>
       <version>4.0.1</version>
     </dependency>
+
+    <!-- TODO: Upgrade to Jakarta in the future (Spring 6+, Tomcat 10+)-->
+    <!-- We need it to enable support for JSTL functions -->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.2</version>
+    </dependency>
   </dependencies>
 
   <build>

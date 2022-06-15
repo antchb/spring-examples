@@ -1,5 +1,7 @@
 package com.antchb.examples.spring.mvc.model;
 
+import java.util.Arrays;
+
 public class User {
 
     private String firstName;
@@ -7,6 +9,7 @@ public class User {
     private String sex;
     private String country;
     private String type;
+    private String[] operatingSystems;
 
     public User() { }
 
@@ -50,10 +53,18 @@ public class User {
         this.type = type;
     }
 
+    public String[] getOperatingSystems() {
+        return operatingSystems;
+    }
+
+    public void setOperatingSystems(String[] operatingSystems) {
+        this.operatingSystems = operatingSystems;
+    }
+
     @Override
     public String toString() {
-        return "User [country=" + country + ", firstName=" + firstName + ", lastName=" + lastName + ", sex=" + sex
-                + "]";
+        return "User [country=" + country + ", firstName=" + firstName + ", lastName=" + lastName
+                + ", operatingSystems=" + Arrays.toString(operatingSystems) + ", sex=" + sex + ", type=" + type + "]";
     }
 
 }

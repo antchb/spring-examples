@@ -39,8 +39,16 @@
       Support <form:radiobutton path="type" value="Support" />
       User    <form:radiobutton path="type" value="User" />
     </div>
-    <!-- It calls setter methods as "set" + $path -->
+
+    <div>
+      <br/>OS:<br/>
+      <!-- It can be populated the same way as dropdown form with loaded values -->
+      MacOS   <form:checkbox path="operatingSystems" value="MacOS" />
+      Linux   <form:checkbox path="operatingSystems" value="Linux" />
+      Windows <form:checkbox path="operatingSystems" value="Windows" />
+    </div>
     <hr>
+    <!-- It calls setter methods as "set" + $path -->
     <div><input type="submit" value="Submit" /></div>
   </form:form>
   <br/>

@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,5 +24,13 @@
 
   <h3>MVC Form Tags - Radio Button</h3>
   <b>Selected User Type: </b> ${user.type}<br/>
+
+  <h3>MVC Form Tags - Checkbox</h3>
+  <b>Selected Operating Systems: </b>
+  <ul>
+    <c:forEach var="os" items="${user.operatingSystems}">
+      <li>${os}</li>
+    </c:forEach>
+  </ul>
 </body>
 </html>
