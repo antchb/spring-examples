@@ -7,7 +7,7 @@
   <h2>Spring Examples - MVC. Result of the Input HTML Form</h2>
   <hr>
   <a href="/mvc">Main</a><br/>
-  <a href="simple-form/input">Simple Input HTML Form</a>
+  <a href="input">Simple Input HTML Form</a>
   <hr>
   <b>Inserted User's Name: </b> ${param.user_name}<br/>
   <b>Inserted User's Name in upper case (HttpServletRequest): </b> ${model_uppercase_result}<br/>
