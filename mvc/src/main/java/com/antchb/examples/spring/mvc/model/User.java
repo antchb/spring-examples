@@ -6,6 +6,7 @@ public class User {
     private String lastName;
     private String sex;
     private String country;
+    private String type;
 
     public User() { }
 
@@ -39,6 +40,14 @@ public class User {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     @Override

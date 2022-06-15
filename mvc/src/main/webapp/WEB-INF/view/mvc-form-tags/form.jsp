@@ -31,7 +31,16 @@
         <form:options items="${countryOptions}" />
       </form:select>
     </div>
+    
+    <div>
+      <br/>User Type:<br/>
+      <!-- It can be populated the same way as dropdown form with loaded values -->
+      Admin   <form:radiobutton path="type" value="Admin" />
+      Support <form:radiobutton path="type" value="Support" />
+      User    <form:radiobutton path="type" value="User" />
+    </div>
     <!-- It calls setter methods as "set" + $path -->
+    <hr>
     <div><input type="submit" value="Submit" /></div>
   </form:form>
   <br/>

@@ -19,5 +19,8 @@
   <h3>MVC Form Tags - Dropdown List</h3>
   <b>Selected Sex: </b> ${user.sex}<br/>
   <b>Selected Country: </b> ${user.country}<br/>
+
+  <h3>MVC Form Tags - Radio Button</h3>
+  <b>Selected User Type: </b> ${user.type}<br/>
 </body>
 </html>
