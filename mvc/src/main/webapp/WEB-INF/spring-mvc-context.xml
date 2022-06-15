@@ -26,4 +26,8 @@
         <property name="suffix" value=".jsp" />
     </bean>
 
+    <!-- Custom messages for Hibernate Validator. An example: Characters into Integer field -->
+	<bean id="validationErrorMessages" class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames" value="validation_errors" />
+	</bean>
 </beans>

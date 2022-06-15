@@ -31,6 +31,7 @@ public class ValidationController {
     public String processForm(@Valid @ModelAttribute("customer") Customer customer,
                               BindingResult bindingResult) {
         System.out.println(customer);
+        System.out.println(bindingResult);
 
         return bindingResult.hasErrors() ? "validation/form" : "validation/result";
     }
