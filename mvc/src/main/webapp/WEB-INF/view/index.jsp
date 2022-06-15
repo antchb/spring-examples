@@ -6,8 +6,8 @@
 <body>
   <h2>Spring Examples - MVC. Main Page</h2>
   <hr>
-  <a href=".">Main</a><br/>
-  <a href="simple-form">Simple Input HTML Form</a>
+  <a href="/mvc">Main</a><br/>
+  <a href="simple-form/input">Simple Input HTML Form</a>
   <hr>
 </body>
 </html>

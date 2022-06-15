@@ -8,19 +8,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
+@RequestMapping("/simple-form")
 public class SimpleFormController {
     
-    @RequestMapping("/simple-form")
-    public String getMainPage() {
+    @RequestMapping("/input")
+    public String getForm() {
         return "/simple-html-form/form";
     }
 
-    @RequestMapping("/process-simple-form")
+    @RequestMapping("/process")
     public String process() {
         return "/simple-html-form/result";
     }
 
-    @RequestMapping("/process-simple-form-uppercase")
+    @RequestMapping("/process-uppercase")
     public String processToUpperCase(HttpServletRequest request, Model model) {
         String userName = request.getParameter("user_name");
         
@@ -29,7 +30,7 @@ public class SimpleFormController {
         return "/simple-html-form/result";
     }
 
-    @RequestMapping("/process-simple-form-uppercase-v2")
+    @RequestMapping("/process-uppercase-v2")
     public String processToUpperCase(@RequestParam("user_name") String userName, Model model) {
         model.addAttribute("model_uppercase_result_v2", userName.toUpperCase());
 

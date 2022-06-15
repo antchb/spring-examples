@@ -6,25 +6,25 @@
 <body>
   <h2>Spring Examples - MVC. Input HTML Form</h2>
   <hr>
-  <a href=".">Main</a>
+  <a href="/mvc">Main</a>
   <hr>
 
   <h4>Simple Form - No Model</h4>
-  <form action="process-simple-form" method="GET">
+  <form action="process" method="GET">
     <input type="text" name="user_name" placeholder="Enter a user's name" />
     <input type="submit" />
   </form>
   <br/>
   
   <h4>Simple Form - Model. Convert Value to UpperCase - HttpServletRequest</h4>
-  <form action="process-simple-form-uppercase" method="GET">
+  <form action="process-uppercase" method="GET">
     <input type="text" name="user_name" placeholder="Enter a user's name" />
     <input type="submit" />
   </form>
   <br/>
 
   <h4>Simple Form - Model. Convert Value to UpperCase - @RequestParam</h4>
-  <form action="process-simple-form-uppercase-v2" method="GET">
+  <form action="process-uppercase-v2" method="GET">
     <input type="text" name="user_name" placeholder="Enter a user's name" />
     <input type="submit" />
   </form>
