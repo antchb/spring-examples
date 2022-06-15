@@ -17,6 +17,20 @@
     <div>First Name: <form:input path="firstName" /></div>
     <div>Last Name: <form:input path="lastName" /></div>
 
+    <div>
+      Sex: 
+      <form:select path="sex">
+        <form:option value="M" label="Male" />
+        <form:option value="F" label="Female" />
+      </form:select>
+    </div>
+
+    <div>
+      Country: 
+      <form:select path="country">
+        <form:options items="${countryOptions}" />
+      </form:select>
+    </div>
     <!-- It calls setter methods as "set" + $path -->
     <div><input type="submit" value="Submit" /></div>
   </form:form>

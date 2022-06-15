@@ -4,6 +4,8 @@ public class User {
 
     private String firstName;
     private String lastName;
+    private String sex;
+    private String country;
 
     public User() { }
 
@@ -23,9 +25,26 @@ public class User {
         this.lastName = lastName;
     }
 
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
     @Override
     public String toString() {
-        return "User [firstName=" + firstName + ", lastName=" + lastName + "]";
+        return "User [country=" + country + ", firstName=" + firstName + ", lastName=" + lastName + ", sex=" + sex
+                + "]";
     }
 
 }
