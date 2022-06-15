@@ -17,6 +17,7 @@
   <b>Inserted Last Name: </b> ${customer.lastName}<br/>
   <b>Inserted Age: </b> ${customer.age}<br/>
   <b>Inserted Postal Code: </b> ${customer.postalCode}<br/>
+  <b>Inserted Promo Code: </b> ${customer.promotionalCode}<br/>
   <hr>
 
 </body>

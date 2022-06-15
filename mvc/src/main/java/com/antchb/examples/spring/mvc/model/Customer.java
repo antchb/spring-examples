@@ -22,6 +22,9 @@ public class Customer {
 
     @Pattern(regexp="^[a-zA-Z0-9]{5}", message="Must have only 5 characters/digits")
     private String postalCode;
+
+    @PromoCode(prefix = "PRM", message = "Must start with PRM!")
+    private String promotionalCode;
     
     public String getFirstName() {
         return firstName;
@@ -55,10 +58,18 @@ public class Customer {
         this.postalCode = postalCode;
     }
 
+    public String getPromotionalCode() {
+        return promotionalCode;
+    }
+
+    public void setPromotionalCode(String promotionalCode) {
+        this.promotionalCode = promotionalCode;
+    }
+
     @Override
     public String toString() {
         return "Customer [age=" + age + ", firstName=" + firstName + ", lastName=" + lastName + ", postalCode="
-                + postalCode + "]";
+                + postalCode + ", promotionalCode=" + promotionalCode + "]";
     }
 
 }

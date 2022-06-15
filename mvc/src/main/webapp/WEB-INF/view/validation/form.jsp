@@ -38,6 +38,11 @@
       Postal Code: <form:input path="postalCode" />
       <form:errors path="postalCode" cssClass="error" />
     </div>
+
+    <div>
+      Promotional Code: <form:input path="promotionalCode" />
+      <form:errors path="promotionalCode" cssClass="error" />
+    </div>
     <!-- It calls setter methods as "set" + $path -->
     <div><input type="submit" value="Submit" /></div>
   </form:form>
