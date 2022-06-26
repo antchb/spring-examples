@@ -3,10 +3,12 @@ package com.antchb.examples.spring.aop.aspect;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 @Aspect
 @Component
+@Order(1) // Can be negative. Lower value has higher priority
 public class LoggingAspect {
 
     @Pointcut("execution(* com.antchb.examples.spring.aop.dao.*.*(..))")
