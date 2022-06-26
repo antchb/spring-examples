@@ -20,5 +20,6 @@
     <module>basics</module>
     <module>mvc</module>
     <module>mvc-hibernate-project</module>
+    <module>aop</module>
   </modules>
 </project>
