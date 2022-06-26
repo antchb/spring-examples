@@ -18,7 +18,7 @@ public class SpringLoggerConfig {
         this.rootLoggerLevel = rootLoggerLevel;
         this.printedLoggerLevel = printedLoggerLevel;
 
-		initLogger();
+        initLogger();
     }
 
     public void setRootLoggerLevel(String rootLoggerLevel) {

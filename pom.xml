@@ -18,6 +18,7 @@
   
   <modules>
     <module>basics</module>
-    <module>mvc</module>     
+    <module>mvc</module>
+    <module>mvc-hibernate-project</module>
   </modules>
 </project>

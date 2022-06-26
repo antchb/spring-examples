@@ -14,15 +14,15 @@
   <name>Spring Examples - Basics</name>
 
   <properties>
-    <org.springframework.version>5.3.20</org.springframework.version>
+    <org.springframework.version>5.3.21</org.springframework.version>
   </properties>
 
   <dependencies>
-	  <dependency>
-	    <groupId>org.springframework</groupId>
-	    <artifactId>spring-context</artifactId>
-	    <version>${org.springframework.version}</version>
-	  </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <version>${org.springframework.version}</version>
+    </dependency>
 
     <!-- We need it to enable @PostConstruct or @PreDestroy annotations.
          Starting Java 9, javax.annotation has been removed from its default classpath -->

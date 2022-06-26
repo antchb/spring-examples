@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
   <title>Spring Examples - MVC. Result of the MVC Form Tags</title>
 </head>
@@ -14,19 +14,19 @@
 
   <h3>MVC Form Tags - Text Field</h3>
   <!-- It calls getters for firstName, lastName, etc. -->
-  <b>Inserted First Name: </b> ${user.firstName}<br/>
-  <b>Inserted Last Name: </b> ${user.lastName}<br/>
+  <strong>Inserted First Name: </strong> ${user.firstName}<br/>
+  <strong>Inserted Last Name: </strong> ${user.lastName}<br/>
   <hr>
 
   <h3>MVC Form Tags - Dropdown List</h3>
-  <b>Selected Sex: </b> ${user.sex}<br/>
-  <b>Selected Country: </b> ${user.country}<br/>
+  <strong>Selected Sex: </strong> ${user.sex}<br/>
+  <strong>Selected Country: </strong> ${user.country}<br/>
 
   <h3>MVC Form Tags - Radio Button</h3>
-  <b>Selected User Type: </b> ${user.type}<br/>
+  <strong>Selected User Type: </strong> ${user.type}<br/>
 
   <h3>MVC Form Tags - Checkbox</h3>
-  <b>Selected Operating Systems: </b>
+  <strong>Selected Operating Systems: </strong>
   <ul>
     <c:forEach var="os" items="${user.operatingSystems}">
       <li>${os}</li>
