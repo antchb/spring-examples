@@ -9,18 +9,24 @@ import org.springframework.stereotype.Component;
 @Component
 public class LoggingAspect {
 
+    @Pointcut("execution(* com.antchb.examples.spring.aop.dao.*.*(..))")
+    private void allDaoPackagePointcut() { }
+    
+    @Pointcut("execution(* com.antchb.examples.spring.aop.dao.*.extra*(..))")
+    private void allDaoPackageExtraLogicPointcut() { }
+
+    @Pointcut("allDaoPackagePointcut() && !allDaoPackageExtraLogicPointcut()")
+    private void allDaoWithoutExtraLogicPointcut() { }
+
     // @Aspect Type + Pointcut Expression Language (wildcard: [*], param-pattern: (), (*) - one argument, (..) >= 0)
     @Before("execution(public * com.antchb.examples.spring.aop.dao.IUserDAO.dbLogic(..))")
     public void loggingDaoAspect() {
-        System.out.println("\n### Applying Aspect Logging Logic (@Before)... Success!");
+        System.out.println("\n\t*** Applying Aspect Logging Logic (@Before)... Success!");
     }
 
-    @Pointcut("execution(* com.antchb.examples.spring.aop.dao.*.*(..))")
-    private void allDaoPackagePointcut() { }
-
-    @Before("allDaoPackagePointcut()")
+    @Before("allDaoWithoutExtraLogicPointcut()")
     public void loggingAllDaoPointcutDeclaration() {
-        System.out.println("\n### Applying Aspect (@Before) with pointcut declaration... Success!");
+        System.out.println("\n\t*** Applying Aspect (@Before) with pointcut declaration... Success!");
     }
     
 }

@@ -12,6 +12,7 @@ public class App {
 
             IUserDAO userDAO = context.getBean("userDAO", IUserDAO.class);
             userDAO.dbLogic();
+            userDAO.extraLogic();
         }
     }
 

@@ -10,4 +10,8 @@ public class UserDAO implements IUserDAO {
         System.out.println("### Emulating DB actions...");
     }
 
+    @Override
+    public void extraLogic() {
+        System.out.println("### Emulating Extra DB actions. Should not be covered by Aspects");
+    }
 }

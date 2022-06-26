@@ -4,4 +4,5 @@ public interface IUserDAO {
 
     void dbLogic();
 
+    void extraLogic();
 }
