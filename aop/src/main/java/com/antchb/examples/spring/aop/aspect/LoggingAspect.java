@@ -1,8 +1,10 @@
 package com.antchb.examples.spring.aop.aspect;
 
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
@@ -27,8 +29,17 @@ public class LoggingAspect {
     }
 
     @Before("allDaoWithoutExtraLogicPointcut()")
-    public void loggingAllDaoPointcutDeclaration() {
+    public void loggingAllDaoPointcutDeclaration(JoinPoint joinPoint) {
         System.out.println("\n\t*** Applying Aspect (@Before) with pointcut declaration... Success!");
+
+        MethodSignature signature = (MethodSignature) joinPoint.getSignature();
+        System.out.println("\t*** Aspect. Method Signature: " + signature);
+
+        Object[] args = joinPoint.getArgs();
+
+        for (Object o : args) {
+            System.out.println("\t*** Aspect. Argument Value: " + o);
+        }
     }
     
 }

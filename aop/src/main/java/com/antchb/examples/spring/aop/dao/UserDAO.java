@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 public class UserDAO implements IUserDAO {
 
     @Override
-    public void dbLogic() {
+    public void dbLogic(String input) {
         System.out.println("### Emulating DB actions...");
     }
 

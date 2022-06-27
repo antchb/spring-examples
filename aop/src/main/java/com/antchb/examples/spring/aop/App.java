@@ -11,7 +11,7 @@ public class App {
                 = new AnnotationConfigApplicationContext(AppConfiguration.class)) {
 
             IUserDAO userDAO = context.getBean("userDAO", IUserDAO.class);
-            userDAO.dbLogic();
+            userDAO.dbLogic("Hello!");
             userDAO.extraLogic();
         }
     }
