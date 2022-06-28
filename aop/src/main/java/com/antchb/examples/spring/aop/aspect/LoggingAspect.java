@@ -28,6 +28,13 @@ public class LoggingAspect {
         System.out.println("\n\t*** Applying Aspect Logging Logic (@Before)... Success!");
     }
 
+    /*
+     * - @AfterReturning(pointcut = "pointcut()", returning = "value")
+     * - @AfterThrowing(pointcut = "pointcut()", throwing = "exceptionArgName")
+     * - @After("pointcut()")
+     * - @Around("pointcut()") + ProceedingJoinPoint to add additional logic inside a pointcut method. For example to
+     *   check how long does it take to execute a function or functions
+    */
     @Before("allDaoWithoutExtraLogicPointcut()")
     public void loggingAllDaoPointcutDeclaration(JoinPoint joinPoint) {
         System.out.println("\n\t*** Applying Aspect (@Before) with pointcut declaration... Success!");
