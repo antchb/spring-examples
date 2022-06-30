@@ -22,19 +22,22 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         UserBuilder userBuilder = User.withDefaultPasswordEncoder();
 
         auth.inMemoryAuthentication()
-            .withUser(userBuilder.username("admin").password("admin").roles("ADMIN"))
-            .withUser(userBuilder.username("client").password("client").roles("CLIENT"));
+            .withUser(userBuilder.username("admin").password("admin").roles("USER", "ADMIN"))
+            .withUser(userBuilder.username("client").password("client").roles("USER"));
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-            .anyRequest().authenticated()
+            .antMatchers("/").hasRole("USER")
+            .antMatchers("/admin/**").hasRole("ADMIN")
             .and()
             .formLogin().loginPage("/custom-login").loginProcessingUrl("/authenticateTheUser")
             .permitAll()
             .and()
-            .logout().permitAll();
+            .logout().permitAll()
+            .and()
+            .exceptionHandling().accessDeniedPage("/access-denied");
     }
 
 }
