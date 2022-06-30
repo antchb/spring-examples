@@ -25,6 +25,10 @@
     <p>Password: <input type="password" name="password" /></p>
 
     <input type="submit" value="Login"/> 
+
+    <!-- form:form automatically generates CSRF tokens. If we want to use simple form we need to add:
+         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+    -->
   </form:form>
 </body>
 </html>
