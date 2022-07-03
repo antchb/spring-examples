@@ -10,7 +10,7 @@
   <a href="/security">Main</a><br/>
   <hr>
   <p>
-    Access must be restricted for this page.
+    Private information only for admins is here.
   </p>
 </body>
 </html>
