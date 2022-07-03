@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS users_control.users (
 );
 
 -- Users + Roles
-CREATE USER antchb WITH ENCRYPTED PASSWORD 'antchb';
+CREATE USER mvc_hibernate WITH ENCRYPTED PASSWORD 'mvc_hibernate';
 CREATE ROLE mvc_hibernate_project_role WITH NOLOGIN CONNECTION LIMIT -1;
 
 GRANT ALL ON SCHEMA users_control TO mvc_hibernate_project_role;
@@ -28,4 +28,4 @@ GRANT ALL ON ALL SEQUENCES IN SCHEMA users_control TO mvc_hibernate_project_role
 GRANT ALL ON ALL FUNCTIONS IN SCHEMA users_control TO mvc_hibernate_project_role;
 GRANT ALL ON ALL PROCEDURES IN SCHEMA users_control TO mvc_hibernate_project_role;
 
-GRANT mvc_hibernate_project_role TO antchb;
+GRANT mvc_hibernate_project_role TO mvc_hibernate;

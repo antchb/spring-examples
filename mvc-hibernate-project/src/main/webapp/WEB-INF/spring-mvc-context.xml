@@ -30,8 +30,8 @@
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
         <property name="driverClass" value="org.postgresql.Driver" />
         <property name="jdbcUrl" value="jdbc:postgresql://localhost:5432/mvc_hibernate_project?useSSL=false" />
-        <property name="user" value="antchb" />
-        <property name="password" value="antchb" /> 
+        <property name="user" value="mvc_hibernate" />
+        <property name="password" value="mvc_hibernate" />
 
         <property name="initialPoolSize" value="5"/>
         <property name="minPoolSize" value="5" />

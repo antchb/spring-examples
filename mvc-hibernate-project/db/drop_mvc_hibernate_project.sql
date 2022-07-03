@@ -11,4 +11,4 @@
 DROP DATABASE IF EXISTS mvc_hibernate_project WITH (FORCE);
 
 DROP ROLE mvc_hibernate_project_role;
-DROP USER antchb;
+DROP USER mvc_hibernate;
