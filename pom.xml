@@ -22,5 +22,6 @@
     <module>mvc-hibernate-project</module>
     <module>aop</module>
     <module>security</module>
+    <module>rest</module>
   </modules>
 </project>
