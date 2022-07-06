@@ -2,7 +2,7 @@
 -- For example:
 -- /Applications/Postgres.app/Contents/Versions/14/bin/psql -U postgres
 -- Enter Your Password if required. Settings for your local host you can find in 'pg_hba.conf' file
--- \i /Users/anthony/Development/github/spring-examples/db/init_mvc_hibernate_project.sql
+-- \i /Users/anthony/Development/github/spring-examples/mvc-hibernate-project/db/init_mvc_hibernate_project.sql
 
 CREATE DATABASE mvc_hibernate_project;
 
