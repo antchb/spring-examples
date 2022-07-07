@@ -23,5 +23,6 @@
     <module>aop</module>
     <module>security</module>
     <module>rest</module>
+    <module>boot</module>
   </modules>
 </project>
